@@ -5,15 +5,15 @@
             Registrate ya!
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="/users/singin" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="Nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" name="Nombre" placeholder="Nombre" value="{{Nombre}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="Apellido" placeholder="Apellido">
+                    <input type="text" class="form-control" name="Apellido" placeholder="Apellido" value="{{Apellido}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="Email" placeholder="Email">
+                    <input type="text" class="form-control" name="Email" placeholder="Email" value="{{Email}}">
                 </div>
                <!-- <div class="form-group">
                     <select name="select">
@@ -22,10 +22,10 @@
                     </select>
                 </div> -->
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password" value="{{Password}}">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="Password2" placeholder="Confirmar-password">
+                    <input type="password" class="form-control" name="password_conf" placeholder="Confirmar-password" value="{{password_conf}}">
                 </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-lg btn-primary ">Registrate</button>
