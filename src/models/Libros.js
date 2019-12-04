@@ -37,6 +37,10 @@ const libroSchema = new Schema({
   imagen:{
     type: String,
     required:false
+  },
+  descripcion:{
+    type:String,
+    required: true
   }
 
   }

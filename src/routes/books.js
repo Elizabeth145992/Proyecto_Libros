@@ -56,11 +56,12 @@ router.post('/books/new-book',async(req,res)=>{
             pais,
             Npaginas,
             fecha, 
-            imagen
+            imagen,
+            descripcion
         });
     }
     else{
-        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha, imagen}); // 
+        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha, imagen, descripcion}); // 
         await NuevoLibro.save();
         //console.log(NuevoLibro);
         res.redirect('/books');
