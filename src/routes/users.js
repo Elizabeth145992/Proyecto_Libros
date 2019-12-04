@@ -35,7 +35,7 @@ router.post('/users/singin', async(req,res)=>{
     } else{
        const emailuser=  await User.findOne({Email: Email});
        if(emailuser){
-           //req.flash('error_msg', 'El email ya esta en uso');
+           req.flash('error_msg', 'El email ya esta en uso');
            res.redirect('/users/singin');
        }
        //Nuevo usuario
@@ -107,5 +107,11 @@ router.post('/books/new-book',async(req,res)=>{
     
 });
 
+// <----------------- RUTA PARA EL Logout DE LOS USUARIOS --------------->
+
+router.get('/users/logout',(req,res)=>{
+    req.logOut();
+    res.redirect('/');
+});
 
 module.exports=router;

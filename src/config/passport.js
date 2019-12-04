@@ -5,8 +5,8 @@ const User=require('../models/User.js')
 passport.use(new LocalStrategy({
     usernameField:'email'
 }, async (email,password,done)=>{
-    const user = await User.findOne({email: email});
-    console.log(email);
+    const user = await User.findOne({Email: email});
+    
     if(!user){
         return done(null, false,{message: 'Usuario no encontrado'});
     }
@@ -26,7 +26,7 @@ passport.serializeUser((user,done)=>{
     done(null,user.id);
 });
 
-passport.deserializeUser((user,done)=>{
+passport.deserializeUser((id,done)=>{
     User.findById(id,(err,user)=>{
         done(err,user);
     });
