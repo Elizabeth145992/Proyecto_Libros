@@ -6,10 +6,14 @@ const router= express.Router();
 const SchemaLibro=require('../models/Libros.js');
 
 // <----------------- RUTA PARA DE PRUEBAS ------------------>
-router.get('/books',(req,res)=>{
+router.get('/books/catalogo',(req,res)=>{
     res.render('books/catalogo');
 });
 
+//<------------------ RUTA PARA CRUD----------------------------->
+router.get('/books/crud',(req,res)=>{
+    res.render('books/crud');
+});
 // <----------------- RUTA PARA AGREGAR LIBROS ------------------>
 router.get('/books/new-book',(req,res)=>{
     res.render('books/new-book');
@@ -51,16 +55,23 @@ router.post('/books/new-book',async(req,res)=>{
             genero,
             pais,
             Npaginas,
-            fecha
+            fecha, 
+            imagen
         });
     }
     else{
-        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha}); // 
+        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha, imagen}); // 
         await NuevoLibro.save();
         //console.log(NuevoLibro);
         res.redirect('/books');
     }
     
 });
+
+//Todos los libros
+router.get('/books', async (req, res) => {
+    const libro = await SchemaLibro.find();
+    res.render('books/catalogo', { libro });
+  });
 
 module.exports=router;
