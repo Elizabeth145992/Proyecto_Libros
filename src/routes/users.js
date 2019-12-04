@@ -51,6 +51,12 @@ router.get('/users/login',(req,res)=>{
     res.render('users/login.hbs');
 });
 
+router.post('/users/login',passport.authenticate('local',{
+    successRedirect:'/books',
+    failureRedirect:'/users/login',
+    failureFlash:true
+}));
+
 // <----------------- AQUI SE REQUIERE EL MODELO DE User.js DE LA CARPETA MODELS --------------->
 const SchemaLibro=require('../models/Libros.js');
 

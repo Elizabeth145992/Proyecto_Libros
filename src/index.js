@@ -5,10 +5,12 @@ const path=require('path');
 const exphbs=require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
-
+const passport=require('passport');
+const flash=require('connect-flash');
 //Inicializaciones: 
 const app=express();
 require('./database'); // se requiere el archivo database para la conexion
+require('./config/passport');
 //Settings: Aqui van las configuraciones
     //Se configura el puerto 3000 para el servidor
     app.set('port',process.env.PORT || 3000);
@@ -35,10 +37,14 @@ app.use(session({
     saveUninitialized: true
 
 }));
-
-
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 //Global Variables: Aqui se colocan datos para que estendisponibles para toda la aplicacion
-
+app.use((req,res,next)=>{
+    res.locals.error=req.flash('error');
+    next();
+})
 //Routes: Aui van las rutas o Back-end
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));
