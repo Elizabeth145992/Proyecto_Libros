@@ -5,13 +5,13 @@ const router= express.Router();
 // <----------------- AQUI SE REQUIERE EL MODELO DE Libros.js DE LA CARPETA MODELS --------------->
 const SchemaLibro=require('../models/Libros.js');
 
-const {isconected}=require('../helpers/auth');
+const {isAuthenticated }=require('../helpers/auth');
 
 // <----------------- RUTA PARA DE PRUEBAS ------------------>
 
 
 
-router.get('/books',isconected, (req,res)=>{
+router.get('/books/catalogo',isAuthenticated, (req,res)=>{
 
     res.render('books/catalogo');
 });
@@ -21,12 +21,12 @@ router.get('/books/crud',(req,res)=>{
     res.render('books/crud');
 });
 // <----------------- RUTA PARA AGREGAR LIBROS ------------------>
-router.get('/books/new-book', isconected,(req,res)=>{
+router.get('/books/new-book',isAuthenticated,(req,res)=>{
     res.render('books/new-book');
 });
 
 // <----------------- RUTA PARA AGREGAR RECIBIR DATOS DE LIBROS ------------------>
-router.post('/books/new-book', isconected, async(req,res)=>{
+router.post('/books/new-book', isAuthenticated, async(req,res)=>{
     const {id, titulo, editorial, autor, genero, pais, Npaginas, fecha}=req.body; // Campos enviados desde el formulario de new-book
     const errors=[];
     if(!id){
