@@ -5,14 +5,14 @@ const router= express.Router();
 // <----------------- AQUI SE REQUIERE EL MODELO DE Libros.js DE LA CARPETA MODELS --------------->
 const SchemaLibro=require('../models/Libros.js');
 
-const {isconected}=require('../helpers/auth')
+const {isconected}=require('../helpers/auth');
 
 // <----------------- RUTA PARA DE PRUEBAS ------------------>
-<<<<<<< HEAD
+
 router.get('/books/catalogo',(req,res)=>{
-=======
+
 router.get('/books',isconected, (req,res)=>{
->>>>>>> 66a56dd5b78ba14f986ceafbbc8ee32c07962d20
+
     res.render('books/catalogo');
 });
 
@@ -42,13 +42,13 @@ router.post('/books/new-book', isconected, async(req,res)=>{
         errors.push({text:"Favor de llenar el campo Editorial"});
     }
     if(!genero){
-        errors.push({text:"Favor de llenar el campo Genero"})
+        errors.push({text:"Favor de llenar el campo Genero"});
     }
     if(!pais){
-        errors.push({text:"Favor de llenar el campo Pais"})
+        errors.push({text:"Favor de llenar el campo Pais"});
     }
     if(!Npaginas){
-        errors.push({text:"Favor de llenar el campo Numero de Paginas"})
+        errors.push({text:"Favor de llenar el campo Numero de Paginas"});
     }
     
     if(errors.length > 0){
