@@ -9,7 +9,7 @@ const {isconected}=require('../helpers/auth');
 
 // <----------------- RUTA PARA DE PRUEBAS ------------------>
 
-router.get('/books/catalogo',(req,res)=>{
+
 
 router.get('/books',isconected, (req,res)=>{
 
@@ -81,4 +81,4 @@ router.get('/books', async (req, res) => {
     res.render('books/catalogo', { libro });
   });
 
-module.exports=router;
+module.exports = router;
