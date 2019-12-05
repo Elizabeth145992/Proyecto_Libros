@@ -7,17 +7,19 @@
 </head>
 
 <body>
+<br><br><br>
+<div class="container">
+
 <div class="row">
     {{#each libro}}
     <div class="col-md-3">
         <div class="card-deck">
             <div class="card">
-                 <img src="{{imagen}}" class="card-img-top" alt="100">
+                 <img src="{{id}}" class="card-img-top" alt="100">
                  <div class="card-body">
                 <h4 class="card-title">
                     {{titulo}} 
                 </h4>
-               <p class="card-text">{{descripcion}}</p>
                <p class="card-text"><small class="text-muted"> Autor(es): {{autor}}</small></p>
                <p><small class="text-muted"> Editorial:{{editorial}}</small></p>
                <p><small class="text-muted">Genero: {{genero}}</small> </p>
