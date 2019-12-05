@@ -33,17 +33,10 @@ const libroSchema = new Schema({
   fecha: {
     type: Date,
     default: Date.now
-  },
-  imagen:{
-    type: String,
-    required: true
-  },
-  descripcion:{
-    type:String,
-    required: true
   }
+ 
 
   }
 );
 
-module.exports = mongoose.model('Libros', libroSchema);
+module.exports = mongoose.model('libros', libroSchema);

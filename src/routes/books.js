@@ -5,21 +5,13 @@ const router= express.Router();
 // <----------------- AQUI SE REQUIERE EL MODELO DE Libros.js DE LA CARPETA MODELS --------------->
 const SchemaLibro=require('../models/Libros.js');
 
-const {isAuthenticated }=require('../helpers/auth');
+const {isAuthenticated}=require('../helpers/auth.js')
 
 // <----------------- RUTA PARA DE PRUEBAS ------------------>
-
-
-
-router.get('/books/catalogo',isAuthenticated, (req,res)=>{
-
+router.get('/books/catalogo', isAuthenticated,(req,res)=>{
     res.render('books/catalogo');
 });
 
-//<------------------ RUTA PARA CRUD----------------------------->
-router.get('/books/crud',(req,res)=>{
-    res.render('books/crud');
-});
 // <----------------- RUTA PARA AGREGAR LIBROS ------------------>
 router.get('/books/new-book',isAuthenticated,(req,res)=>{
     res.render('books/new-book');
@@ -30,7 +22,7 @@ router.post('/books/new-book', isAuthenticated, async(req,res)=>{
     const {id, titulo, editorial, autor, genero, pais, Npaginas, fecha}=req.body; // Campos enviados desde el formulario de new-book
     const errors=[];
     if(!id){
-        errors.push({text:"Favor de llenar el campo ID"});
+        errors.push({text:"Favor de llenar el campo Imagen"});
     }
     if(!titulo){
         errors.push({text:"Favor de llenar el campo Titulo"});
@@ -50,7 +42,7 @@ router.post('/books/new-book', isAuthenticated, async(req,res)=>{
     if(!Npaginas){
         errors.push({text:"Favor de llenar el campo Numero de Paginas"});
     }
-    
+
     if(errors.length > 0){
         res.render("books/new-book",{
             errors,
@@ -61,15 +53,12 @@ router.post('/books/new-book', isAuthenticated, async(req,res)=>{
             genero,
             pais,
             Npaginas,
-            fecha, 
-            imagen,
-            descripcion
+            fecha        
         });
     }
     else{
-        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha, imagen, descripcion}); // 
+        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha}); 
         await NuevoLibro.save();
-        //console.log(NuevoLibro);
         res.redirect('/books');
     }
     
@@ -81,4 +70,4 @@ router.get('/books', async (req, res) => {
     res.render('books/catalogo', { libro });
   });
 
-module.exports = router;
+module.exports=router;
