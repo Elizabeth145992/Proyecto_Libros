@@ -12,8 +12,8 @@
                 <h3>Editar libro</h3>
             </div>
             <div class="card-body">
-                <form action="/books/edit/{{libro._id}}?_method = POST" method="POST"> 
-                <input type="hidden" name="_method" value="PUT">
+                <form action="/books/edit/{{libro._id}}" method="POST"> 
+                
                     <div class="form-group">
                         <input type="text" name="id" class="form-control" placeholder="URL de la imagen" value="{{libro.id}}">
                     </div>
@@ -36,8 +36,7 @@
                         <input type="text" name="fecha" class="form-control" placeholder="fecha" value="{{libro.editorial}}">
                     </div>
                     <div class="form-group">
-                        <textarea name="Npaginas" class="form-control">{{libro.Npaginas}}
-                        </textarea>
+                        <textarea name="Npaginas" class="form-control">{{libro.Npaginas}}</textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success" type="submit">Guardar</button>
