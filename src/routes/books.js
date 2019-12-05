@@ -84,7 +84,7 @@ router.get('/books', isAuthenticated, async (req, res) => {
     res.render('books/edit', { libro });
   });
   
-  router.put('/books/edit/:id', isAuthenticated, async (req, res) => {
+  router.post('/books/edit/:id', isAuthenticated, async (req, res) => {
     const { titulo, editorial } = req.body;
     await SchemaLibro.findByIdAndUpdate(req.params.id, {titulo, editorial});
     req.flash('success_msg', 'Note Updated Successfully');
