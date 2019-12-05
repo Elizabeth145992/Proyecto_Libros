@@ -10,10 +10,6 @@ const libroSchema = new Schema({
     type: String,
     required: true
   },
-  descripcion: {
-    type: String,
-    required:true
-  },
   editorial: {
     type: String,
     required: true
@@ -37,21 +33,9 @@ const libroSchema = new Schema({
   fecha: {
     type: Date,
     default: Date.now
-<<<<<<< HEAD
-  },
-  imagen: {
-    type: String,
-    required: true
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 080bd823e852b45e762ddb179a3745f1e12e4a7b
   }
- 
->>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
 
   }
- 
-});
+);
 
 module.exports = mongoose.model('libros', libroSchema);
