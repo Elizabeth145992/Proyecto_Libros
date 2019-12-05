@@ -12,6 +12,13 @@ router.get('/books/catalogo', isAuthenticated,(req,res)=>{
     res.render('books/catalogo');
 });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 080bd823e852b45e762ddb179a3745f1e12e4a7b
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
 // <----------------- RUTA PARA AGREGAR LIBROS ------------------>
 router.get('/books/new-book',isAuthenticated,(req,res)=>{
     res.render('books/new-book');
@@ -45,12 +52,20 @@ router.post('/books/new-book', isAuthenticated, async(req,res)=>{
     if(!Npaginas){
         errors.push({text:"Favor de llenar el campo Numero de Paginas"});
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
     if(!imagen){
         errors.push({text:"Favor de llenar el campo imagen"});
     }
     
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
 
 >>>>>>> 080bd823e852b45e762ddb179a3745f1e12e4a7b
     if(errors.length > 0){
@@ -64,12 +79,24 @@ router.post('/books/new-book', isAuthenticated, async(req,res)=>{
             genero,
             pais,
             Npaginas,
+<<<<<<< HEAD
             fecha, 
             imagen
         });
     }
     else{
+<<<<<<< HEAD
         const NuevoLibro = new SchemaLibro({id,titulo, descripcion, autor,editorial,genero,pais,Npaginas,fecha, imagen}); 
+=======
+        const NuevoLibro = new SchemaLibro({id,titulo, descripcion, autor,editorial,genero,pais,Npaginas,fecha, imagen}); // 
+=======
+            fecha        
+        });
+    }
+    else{
+        const NuevoLibro = new SchemaLibro({id,titulo,autor,editorial,genero,pais,Npaginas,fecha}); 
+>>>>>>> 080bd823e852b45e762ddb179a3745f1e12e4a7b
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
         await NuevoLibro.save();
         res.redirect('/books');
     }   
@@ -81,6 +108,10 @@ router.get('/books', async (req, res) => {
     res.render('books/catalogo', { libro });
   });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
   router.get('/books/edit/:id',async(req, res)=>{
       const libro = await SchemaLibro.findById(req.params.id);
       res.render('books/edit', {libro});
@@ -97,5 +128,11 @@ router.get('/books', async (req, res) => {
       res.redirect('/books');
   });
 module.exports = router;
+<<<<<<< HEAD
 
 
+=======
+=======
+module.exports=router;
+>>>>>>> 080bd823e852b45e762ddb179a3745f1e12e4a7b
+>>>>>>> eece1401d996bb2d526fb5f480e1d779a295231a
