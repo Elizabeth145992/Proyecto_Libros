@@ -6,7 +6,7 @@ const _remoto= 'mongodb://CAA:1234@52.90.63.108/DBLibros?authSource=admin';
 
 
 // <---- Conexion y configuracion basica de moongoose ----->S
-mongoose.connect('mongodb://localhost/DBLibros',{
+mongoose.connect(_remoto,{
     useCreateIndex:true,
     useNewUrlParser:true,
     useFindAndModify:false
