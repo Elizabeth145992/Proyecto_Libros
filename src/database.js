@@ -1,7 +1,7 @@
 // <-------------- CONEXION A LA BASE DE DATOS ------------>
 const mongoose= require('mongoose'); // COnstante para requerir mongoose
-const _local= 'mongodb://localhost/DBLibros';
-const _remoto= 'mongodb://ecr:1234@54.175.120.170/DBLibros?authSource=admin';
+//const _local= 'mongodb://localhost/DBLibros';
+//const _remoto= 'mongodb://ecr:1234@54.175.120.170/DBLibros?authSource=admin';
 
 // <---- Conexion y configuracion basica de moongoose ----->S
 mongoose.connect('mongodb://localhost/DBLibros',{
